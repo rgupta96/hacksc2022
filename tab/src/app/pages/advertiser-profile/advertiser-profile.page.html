@@ -1,17 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Advertiser Profile
+      The Loop
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Advertiser Profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="card">
+    <div class="header">
+      <div class="avatar">
+        <img src="https://cdn.shopify.com/s/files/1/2489/2950/files/diamond-1C_f6d21ab7-6d64-4be8-b294-e84c4f815be0_160x@2x.png?v=1621956588" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="user-meta ion-text-center">
+      <h3 class="playername">Jack's Surfboards</h3>
+      <h5 class="country">Los Angeles, CA</h5>
+      <h6 class="ranking">Total potentially interested users:
+        <ion-button (click)="presentAlert()">
+          <ion-label>{{ totalUsers.toString() }}</ion-label>
+        </ion-button>
+      </h6>
+    </div>
+  </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+
 </ion-content>

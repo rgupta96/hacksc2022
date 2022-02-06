@@ -1,3 +1,59 @@
-<p>
-  feed-post works!
-</p>
+<ion-button *ngIf="post.isAd" (click)="seeAd()">See Ad for 2 ETH</ion-button>
+
+<ion-card *ngIf="blurred" style="filter: blur(5px)">
+  <ion-item>
+    <ion-avatar slot="start">
+      <img *ngIf="!post.isAd" src="{{ post.img }}">
+      <img *ngIf="post.isAd" src="https://cdn.shopify.com/s/files/1/2489/2950/files/diamond-1C_f6d21ab7-6d64-4be8-b294-e84c4f815be0_160x@2x.png?v=1621956588">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{ post.poster }}</h3>
+      <p>{{ post.date_posted.toDateString() }}</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-card-content *ngIf="post.isAd">
+    {{ post.text }}
+
+  </ion-card-content>
+  <ion-card-content>
+    <img style="height: 50%; width: 50%" src="https://www.sixsenses.com/media/1552/fiji-surfing_fiji2_r.jpg?anchor=center&mode=crop&rnd=132266537910000000">
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="!blurred && post.isAd">
+  <ion-item>
+    <ion-avatar slot="start">
+      <img *ngIf="!post.isAd" src="{{ post.img }}">
+      <img *ngIf="post.isAd" src="https://cdn.shopify.com/s/files/1/2489/2950/files/diamond-1C_f6d21ab7-6d64-4be8-b294-e84c4f815be0_160x@2x.png?v=1621956588">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{ post.poster }}</h3>
+      <p>{{ post.date_posted.toDateString() }}</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-card-content *ngIf="post.isAd">
+    {{ post.text }}
+
+  </ion-card-content>
+  <ion-card-content>
+    <img style="height: 50%; width: 50%" src="https://www.sixsenses.com/media/1552/fiji-surfing_fiji2_r.jpg?anchor=center&mode=crop&rnd=132266537910000000">
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="!post.isAd">
+  <ion-item>
+    <ion-avatar slot="start">
+      <img *ngIf="!post.isAd" src="{{ post.img }}">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{ post.poster }}</h3>
+      <p>{{ post.date_posted.toDateString() }}</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-card-content>
+    {{ post.text }}
+  </ion-card-content>
+</ion-card>

@@ -1,15 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      User Profile
+      The Loop
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">User Profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" [slot]="fixed">
+  <div class="card">
+    <div class="header">
+      <div class="avatar">
+        <img src="https://media-exp1.licdn.com/dms/image/C5603AQE5SRdeHSGpSw/profile-displayphoto-shrink_800_800/0/1563750797361?e=1649894400&v=beta&t=SlS8ID-RFHr9_tYX4nQRehX00tuGBE7cDg0qVHzEfMc" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="user-meta ion-text-center">
+      <h3 class="playername">Rohan Gupta</h3>
+      <h5 class="country">Los Angeles, CA</h5>
+      <h6 class="ranking">Current holdings:
+        <ion-chip>
+          <ion-label>{{ userETH }} ETH</ion-label>
+        </ion-chip>
+        <ion-button (click)="updateETH()">Update Holdings</ion-button>
+      </h6>
+      <h6 class="ranking">Current data requests:
+        <ion-chip>
+          <ion-label>{{ totalDataRequests }}</ion-label>
+        </ion-chip>
+        <ion-button (click)="updateTotalDataRequests()">Update Requests</ion-button>
+      </h6>
+    </div>
+  </div>
 </ion-content>
