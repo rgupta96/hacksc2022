@@ -1,0 +1,173 @@
+<!doctype html>
+
+<html>
+<head>
+  <script src="node_modules/web3/dist/web3.js" type="text/javascript">
+  </script>
+    <script src="node_modules/truffle-contract/dist/truffle-contract.js" type="text/javascript">
+    </script>
+</head>
+<body>
+
+<script>
+var web3;
+if (typeof web3 !== 'undefined') {
+  web3 = new Web3(web3.currentProvider);
+} else {
+  // set the provider you want from Web3.providers
+  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+}
+
+
+var EthereumSession = web3.eth.contract([
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "perusercost",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "watchAd",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "map",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "value",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+
+var ethereumSessionInstance = EthereumSession.at("0x416F792fD6a561675852177Ef70Cc3f761881b57");
+
+
+web3.eth.defaultAccount = web3.eth.accounts[0];
+
+ethereumSessionInstance.watchAd(web3.eth.defaultAccount);
+console.log("user watched ad");
+
+
+var provider = new Web3.providers.HttpProvider("http://localhost:7545");
+var EthereumSessionTruffle = TruffleContract({abi: [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "perusercost",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "watchAd",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "map",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "value",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]});
+EthereumSessionTruffle.setProvider(provider);
+var esTruffleInstance = null;
+EthereumSessionTruffle.at("0x416F792fD6a561675852177Ef70Cc3f761881b57").then(instance => {
+	esTruffleInstance = instance;
+	console.log(instance);
+	return instance.watchAd("0xBa40924e8402C867166B326d01d90dA948610Cb0");
+}).then(result => { console.log(result);});
+
+
+
+
+
+
