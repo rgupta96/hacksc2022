@@ -16,9 +16,9 @@ $(document).ready(function () {
       var WatchAd = User.watchAd()
       WatchAd.watch(function (error, result) {
         if (error) console.error(error)
-        else updateTotalSupply();
+        else watchAd();
       })
-      updateTotalSupply();
+      watchAd();
     })
   })
 })
