@@ -24,8 +24,8 @@ export class AdvertiserProfilePage {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Send out ads to 10,590 users?',
-      message: 'Are you sure you want to send out 10,950 ads to users? This action will cost 5 ETH',
+      header: `Send out ads to ${this.totalUsers} users?`,
+      message: `Are you sure you want to send out ${this.totalUsers} ads to users? This action will cost 5 ETH`,
       buttons: [
         {
           text: 'Cancel',
